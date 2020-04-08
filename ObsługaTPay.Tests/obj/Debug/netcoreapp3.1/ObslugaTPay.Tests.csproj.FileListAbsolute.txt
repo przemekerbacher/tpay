@@ -100,6 +100,5 @@ C:\Users\Przemek\source\repos\ObslugaTPay\ObsługaTPay.Tests\bin\Debug\netcoreap
 C:\Users\Przemek\source\repos\ObslugaTPay\ObsługaTPay.Tests\bin\Debug\netcoreapp3.1\RestSharp.Serializers.NewtonsoftJson.dll
 C:\Users\Przemek\source\repos\ObslugaTPay\ObsługaTPay.Tests\bin\Debug\netcoreapp3.1\RestSharp.Serializers.Utf8Json.dll
 C:\Users\Przemek\source\repos\ObslugaTPay\ObsługaTPay.Tests\bin\Debug\netcoreapp3.1\Utf8Json.dll
-C:\Users\Przemek\source\repos\ObslugaTPay\ObsługaTPay.Tests\obj\Debug\netcoreapp3.1\ObslugaTPay.Tests.csproj.CoreCompileInputs.cache
 C:\Users\Przemek\source\repos\ObslugaTPay\ObsługaTPay.Tests\bin\Debug\netcoreapp3.1\Castle.Core.dll
 C:\Users\Przemek\source\repos\ObslugaTPay\ObsługaTPay.Tests\bin\Debug\netcoreapp3.1\FakeItEasy.dll

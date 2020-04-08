@@ -137,7 +137,24 @@ namespace ObslugaTPay.Models.Enums
         /// Enum ERR31 for value: ERR31
         /// </summary>
         [EnumMember(Value = "ERR31")]
-        ERR31 = 22
+        ERR31 = 22,
 
+        /// <summary>
+        /// Enum ERR64 for value: ERR64
+        /// </summary>
+        [EnumMember(Value = "ERR64")]
+        ERR64 = 23,
+
+        /// <summary>
+        /// Enum ERR65 for value: ERR65
+        /// </summary>
+        [EnumMember(Value = "ERR65")]
+        ERR65 = 24, 
+
+        /// <summary>
+        /// Enum ERR66 for value: ERR66
+        /// </summary>
+        [EnumMember(Value = "ERR66")]
+        ERR66 = 25
     }
 }

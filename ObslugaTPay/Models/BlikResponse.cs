@@ -11,7 +11,7 @@ namespace ObslugaTPay.Models
     public class BlikResponse
     {
         [DataMember]
-        public int Result { get; set; }
+        public Result Result { get; set; }
         [DataMember]
         public List<BlikAliasResponse> AvailableUserApps { get; set; }
         [DataMember]

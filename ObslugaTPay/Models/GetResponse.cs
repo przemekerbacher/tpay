@@ -11,7 +11,7 @@ namespace ObslugaTPay.Models
     public class GetResponse
     {
         [DataMember]
-        public int Result { get; set; }
+        public Result Result { get; set; }
         public Status? Status { get; set; }
         public ErrorCode? ErrorCode { get; set; }
         public DateTime? StartTime { get; set; }

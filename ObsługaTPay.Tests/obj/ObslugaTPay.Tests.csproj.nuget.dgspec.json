@@ -73,6 +73,10 @@
               "target": "Package",
               "version": "[106.10.1, )"
             },
+            "Unity": {
+              "target": "Package",
+              "version": "[5.11.5, )"
+            },
             "nunit": {
               "target": "Package",
               "version": "[3.12.0, )"

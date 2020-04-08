@@ -10,7 +10,7 @@ namespace ObslugaTPay.Models
     public class ChargebackResponse
     {
         [DataMember]
-        public int Result { get; set; }
+        public Result Result { get; set; }
         [DataMember]
         public TransactionErrorCodes Err{ get; set; }
         [DataMember]

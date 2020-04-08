@@ -8,13 +8,13 @@ namespace ObslugaTPay.Logic
 {
     public class TPay
     {
-        private TPayApiAccess _settings;
+        private ITPayApiAccess _api;
         private Credentials _credentials;
         private readonly string DATETIMEFORMAT = "yyyy:MM:dd:HH:MM";
 
-        public TPay(Credentials credentials, TPayApiAccess api)
+        public TPay(Credentials credentials, ITPayApiAccess api)
         {
-            _settings = api;
+            _api = api;
             _credentials = credentials;
         }
 
@@ -67,12 +67,12 @@ namespace ObslugaTPay.Logic
                 Zip = model.Zip,
             };
 
-            return await _settings.Create(modelWithSecrets);
+            return await _api.Create(modelWithSecrets);
         }
 
-        public async Task<BlikResponse> Blik(CreateResponse model, int code)
+        public async Task<BlikResponse> PayViaBlik(CreateResponse model, int code)
         {
-            return await _settings.BlikPayment(new Blik
+            return await _api.BlikPayment(new Blik
             {
                 Code = code,
                 Title = model.Title,
@@ -82,19 +82,19 @@ namespace ObslugaTPay.Logic
 
         public async Task<GetResponse> Get(CreateResponse model)
         {
-            return await _settings.Get(new Get { Title = model.Title, ApiPassword = _credentials.Password });
+            return await _api.Get(new Get { Title = model.Title, ApiPassword = _credentials.Password });
         }
 
         public async Task<GetResponse> Get(string title)
         {
-            return await _settings.Get(new Get { Title = title, ApiPassword = _credentials.Password });
+            return await _api.Get(new Get { Title = title, ApiPassword = _credentials.Password });
         }
 
         public async Task<BlikResponse> Blik(CreateResponse model, Alias alias, int? code = null)
         {
             if (model != null)
             {
-                return await _settings.BlikPayment(new Blik
+                return await _api.BlikPayment(new Blik
                 {
                     Code = code,
                     Title = model.Title,
@@ -108,7 +108,7 @@ namespace ObslugaTPay.Logic
 
         public async Task<BlikResponse> Blik(string title, Alias alias, int? code = null)
         {
-            return await _settings.BlikPayment(new Blik
+            return await _api.BlikPayment(new Blik
             {
                 Code = code,
                 Title = title,
@@ -121,7 +121,7 @@ namespace ObslugaTPay.Logic
         {
             if (model != null)
             {
-                return await _settings.Chargeback(new Chargeback
+                return await _api.Chargeback(new Chargeback
                 {
                     Title = model.Title,
                     ApiPassword = _credentials.Password
@@ -132,10 +132,19 @@ namespace ObslugaTPay.Logic
         }
         public async Task<ChargebackResponse> Chargeback(string title, float? amount)
         {
-            return await _settings.Chargeback(new Chargeback
+            return await _api.Chargeback(new Chargeback
             {
                 Title = title,
                 ApiPassword = _credentials.Password
+            });
+        }
+
+        public async Task<RefundTransactionRespose> GetChargebackStatus(CreateResponse model)
+        {
+            return await _api.GetChargebackStatus(new RefundTransaction
+            {
+                Title = model.Title,
+                Password = _credentials.Password
             });
         }
     }
