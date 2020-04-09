@@ -1,4 +1,5 @@
-﻿using ObslugaTPay.Helpers.Contracts;
+﻿using Castle.Core.Internal;
+using ObslugaTPay.Helpers.Contracts;
 using System.Security.Cryptography;
 using System.Text;
 
@@ -22,6 +23,11 @@ namespace ObslugaTPay.Helpers.Implementations
 
         private string Calculate(string data)
         {
+            if (data.IsNullOrEmpty())
+            {
+                return null; 
+            }
+
             var md5Hash = MD5.Create();
             var md5Bytes = md5Hash.ComputeHash(Encoding.UTF8.GetBytes(data));
             var stringBuilder = new StringBuilder();

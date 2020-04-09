@@ -45,12 +45,20 @@ namespace ObslugaTPay.Tests
         [TestCase(null, "ma", "kota", "ala")]
         [TestCase("ala", null, "kota", "ala")]
         [Test]
-        public void CalculateWithMissingParameter(string id, string amount, string crc, string code)
+        public void CalculateWithMissingParameterShouldPass(string id, string amount, string crc, string code)
         {
             _md5SumCalculator.Md5Sum(id, amount, crc, code);
 
             Assert.Pass();
         }
-
+        [TestCase(null)]
+        [TestCase("")]
+        [Test]
+        public void CalclateWithoutValueShouldReturnNull(string data)
+        {
+            var result = _md5SumCalculator.TimeHash(data, null);
+            
+            Assert.That(result, Is.Null);
+        }
     }
 }

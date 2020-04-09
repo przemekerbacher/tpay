@@ -10,7 +10,7 @@ namespace ObslugaTPay.Models
     public class CreateResponse
     {
         [DataMember]
-        public string Err { get; set; }
+        public TransactionErrorCodes? Err { get; set; }
         [DataMember]
         public string Title { get; set; }
         [DataMember]

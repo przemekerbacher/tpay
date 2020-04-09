@@ -3,9 +3,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.29920.165
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ObslugaTPay", "ObslugaTPay\ObslugaTPay.csproj", "{BB666EE1-093B-4A61-89AA-304F193BDFDD}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TPAY.ObslugaTPay", "ObslugaTPay\TPAY.ObslugaTPay.csproj", "{BB666EE1-093B-4A61-89AA-304F193BDFDD}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ObslugaTPay.Tests", "ObsługaTPay.Tests\ObslugaTPay.Tests.csproj", "{EFD80D8C-EE4A-4327-83CF-74F4B9F1A318}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TPAY.ObslugaTPay.Tests", "ObsługaTPay.Tests\TPAY.ObslugaTPay.Tests.csproj", "{EFD80D8C-EE4A-4327-83CF-74F4B9F1A318}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

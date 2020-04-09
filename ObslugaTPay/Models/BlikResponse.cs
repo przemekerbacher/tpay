@@ -16,6 +16,6 @@ namespace ObslugaTPay.Models
         public List<BlikAliasResponse> AvailableUserApps { get; set; }
         [DataMember]
 
-        public TransactionErrorCodes Err { get; set; }
+        public TransactionErrorCodes? Err { get; set; }
     }
 }

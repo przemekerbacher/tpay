@@ -4,7 +4,7 @@ namespace ObslugaTPay.Helpers
 {
     public class ErrorDescriptor
     {
-       public string GetErrorInfo(TransactionErrorCodes errorCode)
+       public string GetErrorInfo(TransactionErrorCodes? errorCode)
         {
             switch(errorCode){
                 case TransactionErrorCodes.ERR31:

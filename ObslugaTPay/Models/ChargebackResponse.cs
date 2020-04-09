@@ -12,7 +12,7 @@ namespace ObslugaTPay.Models
         [DataMember]
         public Result Result { get; set; }
         [DataMember]
-        public TransactionErrorCodes Err{ get; set; }
+        public TransactionErrorCodes? Err{ get; set; }
         [DataMember]
         public float? Amount { get; set; }
     }

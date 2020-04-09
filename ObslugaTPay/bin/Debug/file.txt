@@ -1,0 +1,6 @@
+2020-04-09 11:16:13.3344|INFO|ObslugaTPay.Api.DataSender|Posting end with status: OK
+2020-04-09 11:16:14.2986|INFO|ObslugaTPay.Api.DataSender|Posting end with status: OK
+2020-04-09 11:16:15.3978|INFO|ObslugaTPay.Api.DataSender|Posting end with status: OK
+2020-04-09 11:19:49.9105|INFO|ObslugaTPay.Api.DataSender|"https://secure.tpay.com/api/gw/75f86137a6635df826e3efe2e66f7c9a946fdde1/transaction/create" - Posting end with status: OK
+2020-04-09 11:19:50.9891|INFO|ObslugaTPay.Api.DataSender|"https://secure.tpay.com/api/gw/75f86137a6635df826e3efe2e66f7c9a946fdde1/transaction/create" - Posting end with status: OK
+2020-04-09 11:19:52.3314|INFO|ObslugaTPay.Api.DataSender|"https://secure.tpay.com/api/gw/75f86137a6635df826e3efe2e66f7c9a946fdde1/chargeback/transaction" - Posting end with status: OK

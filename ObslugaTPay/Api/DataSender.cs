@@ -8,6 +8,8 @@ namespace ObslugaTPay.Api
 {
     public abstract class DataSender
     {
+        private static readonly NLog.Logger Logger = NLog.LogManager.GetCurrentClassLogger();
+
         private ISerializer _serializer;
         public DataSender()
         {
@@ -32,17 +34,17 @@ namespace ObslugaTPay.Api
                 {
                     result = JsonConvert.DeserializeObject<T>(response.Content);
                 }
-                else
-                {
-                    Console.WriteLine(response.StatusCode);
-                }
-            }
-            catch
-            {
-                //Log
-                Console.WriteLine(response.Content);
-            }
 
+                Logger.Info("Posting to: {url}" +
+                    "with data: {data}" +
+                    "end with status: {status}"
+                    ,url, jsonData, response.StatusCode);
+                    
+            }
+            catch(Exception ex)
+            {
+                Logger.Error(ex.Message, "Error when trying post data.");
+            }
 
             return result;
         }

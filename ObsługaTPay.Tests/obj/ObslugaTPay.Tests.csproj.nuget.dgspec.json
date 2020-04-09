@@ -1,28 +1,28 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Przemek\\source\\repos\\ObslugaTPay\\ObsługaTPay.Tests\\ObslugaTPay.Tests.csproj": {}
+    "D:\\Dev\\s4h\\ObslugaTPay\\ObsługaTPay.Tests\\ObslugaTPay.Tests.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Przemek\\source\\repos\\ObslugaTPay\\ObslugaTPay\\ObslugaTPay.csproj": {
+    "D:\\Dev\\s4h\\ObslugaTPay\\ObslugaTPay\\TPAY.ObslugaTPay.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Przemek\\source\\repos\\ObslugaTPay\\ObslugaTPay\\ObslugaTPay.csproj",
-        "projectName": "ObslugaTPay",
-        "projectPath": "C:\\Users\\Przemek\\source\\repos\\ObslugaTPay\\ObslugaTPay\\ObslugaTPay.csproj"
+        "projectUniqueName": "D:\\Dev\\s4h\\ObslugaTPay\\ObslugaTPay\\TPAY.ObslugaTPay.csproj",
+        "projectName": "TPAY.ObslugaTPay",
+        "projectPath": "D:\\Dev\\s4h\\ObslugaTPay\\ObslugaTPay\\TPAY.ObslugaTPay.csproj"
       },
       "frameworks": {
         "net472": {}
       }
     },
-    "C:\\Users\\Przemek\\source\\repos\\ObslugaTPay\\ObsługaTPay.Tests\\ObslugaTPay.Tests.csproj": {
+    "D:\\Dev\\s4h\\ObslugaTPay\\ObsługaTPay.Tests\\ObslugaTPay.Tests.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Przemek\\source\\repos\\ObslugaTPay\\ObsługaTPay.Tests\\ObslugaTPay.Tests.csproj",
+        "projectUniqueName": "D:\\Dev\\s4h\\ObslugaTPay\\ObsługaTPay.Tests\\ObslugaTPay.Tests.csproj",
         "projectName": "ObslugaTPay.Tests",
-        "projectPath": "C:\\Users\\Przemek\\source\\repos\\ObslugaTPay\\ObsługaTPay.Tests\\ObslugaTPay.Tests.csproj",
+        "projectPath": "D:\\Dev\\s4h\\ObslugaTPay\\ObsługaTPay.Tests\\ObslugaTPay.Tests.csproj",
         "packagesPath": "C:\\Users\\Przemek\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Przemek\\source\\repos\\ObslugaTPay\\ObsługaTPay.Tests\\obj\\",
+        "outputPath": "D:\\Dev\\s4h\\ObslugaTPay\\ObsługaTPay.Tests\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\Przemek\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -38,8 +38,8 @@
         "frameworks": {
           "netcoreapp3.1": {
             "projectReferences": {
-              "C:\\Users\\Przemek\\source\\repos\\ObslugaTPay\\ObslugaTPay\\ObslugaTPay.csproj": {
-                "projectPath": "C:\\Users\\Przemek\\source\\repos\\ObslugaTPay\\ObslugaTPay\\ObslugaTPay.csproj"
+              "D:\\Dev\\s4h\\ObslugaTPay\\ObslugaTPay\\TPAY.ObslugaTPay.csproj": {
+                "projectPath": "D:\\Dev\\s4h\\ObslugaTPay\\ObslugaTPay\\TPAY.ObslugaTPay.csproj"
               }
             }
           }
@@ -60,6 +60,10 @@
             "Microsoft.NET.Test.Sdk": {
               "target": "Package",
               "version": "[16.4.0, )"
+            },
+            "Moq": {
+              "target": "Package",
+              "version": "[4.13.1, )"
             },
             "NUnit3TestAdapter": {
               "target": "Package",
