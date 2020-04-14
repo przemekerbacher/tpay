@@ -2,55 +2,41 @@
 using ObslugaTPay.Helpers;
 using ObslugaTPay.Logic;
 using ObslugaTPay.Models;
+using ObslugaTPay.Models.Enums;
 using ObslugaTPay.Routes;
 using System;
+using System.Threading.Tasks;
 
 namespace ObslugaTPay
 {
     class Program
     {
+        static Transaction _tpay;
+
         static void Main(string[] args)
         {
-            Create();
-
-            Console.ReadKey();
-        }
-
-        static async void Create()
-        {
-            #region config
             var origin = "https://secure.tpay.com";
-            var apiKey = "75f86137a6635df826e3efe2e66f7c9a946fdde1";
-
-            var credentials = new Credentials
+            var transactionApiKey = "75f86137a6635df826e3efe2e66f7c9a946fdde1";
+            var credentials = new TransactionCredentials
             {
                 Id = 1010,
                 Code = "demo",
                 CRC = "3214",
                 Password = "p@$$w0rd#@!"
             };
-            #endregion
+            var transactionRoutes = new RoutesGetter<TransactionRoutes>(new TransactionRoutes(origin, transactionApiKey)).GetRoutesDictionary();
 
-            #region transaction
-            var transactionRoutes = new RoutesGetter<TransactionRoutes>(new TransactionRoutes(origin, apiKey)).GetRoutesDictionary();
-            var transaction = new Transaction(credentials, new TransactionApi(transactionRoutes)); 
+            _tpay = new Transaction(credentials, new TransactionApi(transactionRoutes));
 
-            //CreateResponse createResponse = await transaction.CreateTransaction(new CreateData(100.99, "Transakcja testowa", 150, "Jan Kowalski", AcceptTos.TRUE)
-            //{
-            //    ExpirationDate = DateTime.Now.AddDays(3)
-            //});
+            Create();
 
-            //BlikResponse blikResponse = await transaction.PayViaBlik(createResponse, 123456);
+            Console.ReadKey();
+        }
 
-            //ChargebackResponse chargebackResponse = await transaction.Chargeback(createResponse);
+        static async Task Create()
+        {
+            CreateResponse createResponse = await _tpay.CreateTransaction(new CreateData((float)100, "Transakcja testowa", 150, "Jan Kowalski", AcceptTos.True));
 
-            //Console.WriteLine(chargebackResponse.Result);
-            #endregion
-
-            #region card
-            var cardRoutes = new RoutesGetter<CardRoutes>(new CardRoutes(origin, apiKey)).GetRoutesDictionary();
-            var cards = new Cards(credentials, new CardsApi(cardRoutes));
-            #endregion
         }
     }
 }

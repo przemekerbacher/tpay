@@ -107,27 +107,9 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Api\CardsApi.cs" />
     <Compile Include="Api\DataSender.cs" />
     <Compile Include="Api\IPostable.cs" />
     <Compile Include="Api\ITransactionsApi.cs" />
-    <Compile Include="Models\Card\Requests\Deregister.cs" />
-    <Compile Include="Models\Card\Requests\VisacheckoutFinish.cs" />
-    <Compile Include="Models\Card\Requests\VisacheckoutFinishSummaryData.cs" />
-    <Compile Include="Models\Card\Requests\VisacheckoutPreapare.cs" />
-    <Compile Include="Models\Card\Requests\Presale.cs" />
-    <Compile Include="Models\Card\Requests\RegisterSale.cs" />
-    <Compile Include="Models\Card\Requests\Sale.cs" />
-    <Compile Include="Models\Card\Requests\Securesale.cs" />
-    <Compile Include="Models\Card\Responses\DeregisterResponse.cs" />
-    <Compile Include="Models\Card\Responses\RegisterSaleRespond.cs" />
-    <Compile Include="Models\Card\Responses\SaleResponse.cs" />
-    <Compile Include="Models\Card\Responses\SecuresaleResponse.cs" />
-    <Compile Include="Models\Card\Responses\VisacheckoutPrepareSumarryData.cs" />
-    <Compile Include="Models\Card\Responses\UserData.cs" />
-    <Compile Include="Models\Card\Responses\VisacheckoutPrepareResponse.cs" />
-    <Compile Include="Models\Enums\CardLanguage.cs" />
-    <Compile Include="Models\Enums\EnablePowUrl.cs" />
     <Compile Include="Models\Enums\Language.cs" />
     <Compile Include="Models\Enums\RefundStatus.cs" />
     <Compile Include="Models\Enums\SaleStatus.cs" />
@@ -141,7 +123,6 @@
     <Compile Include="Api\TransactionApi.cs" />
     <Compile Include="Helpers\Implementations\HashCalculator.cs" />
     <Compile Include="Helpers\RoutesGetter.cs" />
-    <Compile Include="Logic\Cards.cs" />
     <Compile Include="Logic\Transaction.cs" />
     <Compile Include="Models\Transaction\Requests\Alias.cs" />
     <Compile Include="Models\Transaction\Requests\Blik.cs" />
@@ -166,8 +147,7 @@
     <Compile Include="Models\Transaction\Responses\CreateResponse.cs" />
     <Compile Include="Models\Enums\AcceptTos.cs" />
     <Compile Include="Models\Enums\Online.cs" />
-    <Compile Include="Routes\CardRoutes.cs" />
-    <Compile Include="Routes\TransationRoutes.cs" />
+    <Compile Include="Routes\TransactionRoutes.cs" />
     <Compile Include="Models\Transaction\ViewModels\Secrets.cs" />
     <Compile Include="Models\Transaction\ViewModels\Credentials.cs" />
     <Compile Include="Models\Transaction\ViewModels\CreateData.cs" />

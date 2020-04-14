@@ -1,6 +1,7 @@
 ﻿using Newtonsoft.Json;
 using Newtonsoft.Json.Serialization;
 using ObslugaTPay.Models.Enums;
+using System.ComponentModel.DataAnnotations;
 using System.Runtime.Serialization;
 
 namespace ObslugaTPay.Models
@@ -46,7 +47,7 @@ namespace ObslugaTPay.Models
         /// Transaction amount. Please always send the amount with two decimal places like 10.00.
         /// </summary>
         [DataMember]
-        public float Amount { get; set; }
+        public string Amount { get; set; }
 
         /// <summary>
         /// Transaction description.

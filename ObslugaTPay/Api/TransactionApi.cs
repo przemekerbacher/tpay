@@ -3,6 +3,7 @@ using ObslugaTPay.Helpers;
 using ObslugaTPay.Models;
 using ObslugaTPay.Models.Enums;
 using ObslugaTPay.Models.Validators;
+using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 using Create = ObslugaTPay.Models.Create;
@@ -20,7 +21,7 @@ namespace ObslugaTPay.Api
         private string _chargeback = "ChargebackUrl";
         private string _chargebackAny = "ChargebackAny";
         private string _get = "GetUrl";
-        private string _refund = "RefundUrl";
+        private string _refund = "StatusUrl";
         private IDictionary<string, string> _routes;
 
         public TransactionApi(IDictionary<string, string> routes)
@@ -38,11 +39,19 @@ namespace ObslugaTPay.Api
                 var url = _routes[_blik];
                 var sender = new Sender<Blik, BlikResponse>();
                 var result = await sender.Post(data, url);
-                if (result.Err != null)
+                
+                if(result != null)
                 {
-                    LogResultError(url, result.Err);
+                    if (result.Err != null)
+                    {
+                        LogResultError(url, result.Err);
+                    }
                 }
-
+               else
+                {
+                    Logger.Error("Could't recive data. Check internet connection.");
+                }
+                
                 return result;
             }
             else
@@ -64,9 +73,16 @@ namespace ObslugaTPay.Api
                 var url = _routes[_chargeback];
                 var sender = new Sender<Chargeback, ChargebackResponse>();
                 var result = await sender.Post(data, url);
-                if (result.Err != null)
+                if(result != null)
                 {
-                    LogResultError(url, result.Err);
+                    if (result.Err != null)
+                    {
+                        LogResultError(url, result.Err);
+                    }
+                }
+                else
+                {
+                    Logger.Error("Could't recive data. Check internet connection.");
                 }
 
                 return result;
@@ -94,9 +110,16 @@ namespace ObslugaTPay.Api
                 var url = _routes[_chargebackAny];
                 var sender = new Sender<ChargebackAny, ChargebackResponse>();
                 var result = await sender.Post(data, url);
-                if (result.Err != null)
+                if(result != null)
                 {
-                    LogResultError(url, result.Err);
+                    if (result.Err != null)
+                    {
+                        LogResultError(url, result.Err);
+                    }
+                }
+                else
+                {
+                    Logger.Error("Could't recive data. Check internet connection.");
                 }
 
                 return result;
@@ -120,11 +143,18 @@ namespace ObslugaTPay.Api
                 var url = _routes[_create];
                 var sender = new Sender<Create, CreateResponse>();
                 var result = await sender.Post(data, url);
-                if(result.Err != null)
+                if(result != null)
                 {
-                    LogResultError(url, result.Err);
+                    if (result.Err != null)
+                    {
+                        LogResultError(url, result.Err);
+                    }
                 }
-                
+                else
+                {
+                    Logger.Error("Could't recive data. Check internet connection.");
+                }
+
                 return result;
             }
             else
@@ -147,9 +177,16 @@ namespace ObslugaTPay.Api
                 var url = _routes[_get];
                 var sender = new Sender<Get, GetResponse>();
                 var result = await sender.Post(data, url);
-                if (result.Err != null)
+                if(result != null)
                 {
-                    LogResultError(url, result.Err);
+                    if (result.Err != null)
+                    {
+                        LogResultError(url, result.Err);
+                    }
+                }
+                else
+                {
+                    Logger.Error("Could't recive data. Check internet connection.");
                 }
 
                 return result;

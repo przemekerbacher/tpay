@@ -1,6 +1,7 @@
 ﻿using ObslugaTPay.Api;
 using ObslugaTPay.Helpers.Implementations;
 using ObslugaTPay.Models;
+using System;
 using System.Globalization;
 using System.Threading.Tasks;
 
@@ -11,6 +12,10 @@ namespace ObslugaTPay.Logic
     /// </summary>
     public class Transaction
     {
+        private static readonly NLog.Logger Logger = NLog.LogManager.GetCurrentClassLogger();
+        private ITransactionsApi _api;
+        private TransactionCredentials _credentials;
+
         /// <summary>
         /// Date format used in Tpay system. It's important for hashing reasons.
         /// </summary>
@@ -21,15 +26,12 @@ namespace ObslugaTPay.Logic
         /// </summary>
         public bool AllowChargebackAny { get; set; } = false;
 
-        private ITransactionsApi _api;
-        private Credentials _credentials;
-
         /// <summary>
         /// Initializes a new instance of the <see cref="Transaction" /> class.
         /// </summary>
         /// <param name="credentials">Provides data required to get access to api.</param>
         /// <param name="api">Provides methods for executing api requests.</param>
-        public Transaction(Credentials credentials, ITransactionsApi api)
+        public Transaction(TransactionCredentials credentials, ITransactionsApi api)
         {
             _api = api;
             _credentials = credentials;
@@ -45,10 +47,14 @@ namespace ObslugaTPay.Logic
             #region hashing
             //Hash is required for seurity reason. "md5sum" is mandatory. "timeHash" will be set if date will be set.
             var hashCalculator = new HashCalculator();
-            var md5Sum = hashCalculator.Md5Sum(_credentials.Id.ToString(), model.Amount.ToString(CultureInfo.InvariantCulture), _credentials.CRC, _credentials.Code);
-            var timeHash = hashCalculator.TimeHash(model.ExpirationDate.Value.ToString(DateTimeFormat), _credentials.Code);
+            var md5Sum = hashCalculator.Md5Sum(_credentials.Id.ToString(), model.Amount.ToString("0.00").Replace(",", "."), _credentials.CRC, _credentials.Code);
+            string timeHash = null;
+            if (model.ExpirationDate != null)
+            {
+                timeHash = hashCalculator.TimeHash(model.ExpirationDate.Value.ToString(DateTimeFormat), _credentials.Code);
+            }
             #endregion
-            
+
             var secrets = new Secrets
             {
                 Md5sum = md5Sum,
@@ -67,13 +73,13 @@ namespace ObslugaTPay.Logic
                 ApiPassword = secrets.Password,
                 AcceptTos = model.AcceptTos,
                 Address = model.Address,
-                Amount = model.Amount,
+                Amount = model.Amount.ToString("0.00").Replace(",", "."),
                 City = model.City,
                 Country = model.Country,
                 CustomDescription = model.CustomDescription,
                 Description = model.Description,
                 Email = model.Email,
-                ExprationDate = model.ExpirationDate.Value.ToString(DateTimeFormat),
+                ExprationDate = model.ExpirationDate != null ? model.ExpirationDate.Value.ToString(DateTimeFormat) : null,
                 Group = model.Group,
                 Language = model.Language,
                 MerchantDescription = model.MerchantDescription,
@@ -162,7 +168,7 @@ namespace ObslugaTPay.Logic
                 {
                     Title = model.Title,
                     ApiPassword = _credentials.Password
-                }); ;
+                });
             }
 
             return null;
@@ -183,7 +189,7 @@ namespace ObslugaTPay.Logic
                 {
                     Title = model.Title,
                     ApiPassword = _credentials.Password,
-                    ChargebackAmount = amount
+                    ChargebackAmount = amount.ToString("0.00").Replace(",", ".")
 
                 });
             }

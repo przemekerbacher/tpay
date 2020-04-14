@@ -17,9 +17,9 @@ namespace ObslugaTPay.Models.Validators
                 .Must(BeSmallerThanTransactionValue).WithMessage("{PropertyName} must be smaller than transaction value");
 
         }
-        private bool BeSmallerThanTransactionValue(float amount)
+        private bool BeSmallerThanTransactionValue(string amount)
         {
-            if (amount<= _transactionAmount)
+            if (float.Parse(amount)<= _transactionAmount)
             {
                 return true;
             }

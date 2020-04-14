@@ -8,6 +8,6 @@ namespace ObslugaTPay.Models.Enums
 {
     public enum Language
     {
-        PL, EN, DE
+        pl, en, de
     }
 }

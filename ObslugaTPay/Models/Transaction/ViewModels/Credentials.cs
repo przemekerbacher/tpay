@@ -3,7 +3,7 @@
     /// <summary>
     /// Data required for get access to Tpay.com api
     /// </summary>
-    public class Credentials
+    public class TransactionCredentials
     {
         /// <summary>
         /// Merchant ID in Tpay.com system.

@@ -1,0 +1,120 @@
+ -------------- Info (2020-04-14 13:18:23.4076) --------------
+ 
+ Call Site: ObslugaTPay.Api.DataSender.Post
+ Exception Type: 
+ Exception Message: 
+ Stack Trace: 
+ Additional Info: Posting to: "https://secure.tpay.com/api/gw/75f86137a6635df826e3efe2e66f7c9a946fdde1/transaction/create"with data: "{"id":1010,"accept_tos":1,"api_password":"p@$$w0rd#@!","online":0,"group":150,"amount":"100.00","description":"Transakcja testowa","crc":"3214","language":0,"name":"Jan Kowalski","expration_date":"2020:04:17:13:04","time_hash":"d3f030441317d90b34c2e16c0d1ce79e","md5sum":"ff4039f49447625ef78b8ab368c5cf8c"}"end with status: OK
+
+ -------------- Info (2020-04-14 13:18:41.4885) --------------
+ 
+ Call Site: ObslugaTPay.Api.DataSender.Post
+ Exception Type: 
+ Exception Message: 
+ Stack Trace: 
+ Additional Info: Posting to: "https://secure.tpay.com/api/gw/75f86137a6635df826e3efe2e66f7c9a946fdde1/transaction/create"with data: "{"id":1010,"accept_tos":1,"api_password":"p@$$w0rd#@!","online":0,"group":150,"amount":"100.00","description":"Transakcja testowa","crc":"3214","language":0,"name":"Jan Kowalski","expration_date":"2020:04:17:13:04","time_hash":"d3f030441317d90b34c2e16c0d1ce79e","md5sum":"ff4039f49447625ef78b8ab368c5cf8c"}"end with status: OK
+
+ -------------- Info (2020-04-14 13:18:42.6507) --------------
+ 
+ Call Site: ObslugaTPay.Api.DataSender.Post
+ Exception Type: 
+ Exception Message: 
+ Stack Trace: 
+ Additional Info: Posting to: "https://secure.tpay.com/api/gw/75f86137a6635df826e3efe2e66f7c9a946fdde1/transaction/blik"with data: "{"title":"TR-BRA-1V2WS9X","code":123456,"api_password":"p@$$w0rd#@!","type":0}"end with status: OK
+
+ -------------- Info (2020-04-14 13:18:43.8201) --------------
+ 
+ Call Site: ObslugaTPay.Api.DataSender.Post
+ Exception Type: 
+ Exception Message: 
+ Stack Trace: 
+ Additional Info: Posting to: "https://secure.tpay.com/api/gw/75f86137a6635df826e3efe2e66f7c9a946fdde1/chargeback/transaction"with data: "{"title":"TR-BRA-1V2WS9X","api_password":"p@$$w0rd#@!"}"end with status: OK
+
+ -------------- Error (2020-04-14 13:18:43.8201) --------------
+ 
+ Call Site: ObslugaTPay.Api.TransactionApi.LogResultError
+ Exception Type: 
+ Exception Message: 
+ Stack Trace: 
+ Additional Info: Error from "https://secure.tpay.com/api/gw/75f86137a6635df826e3efe2e66f7c9a946fdde1/chargeback/transaction": "Cannot create refund for this payment channel"
+
+ -------------- Info (2020-04-14 13:51:19.2303) --------------
+ 
+ Call Site: ObslugaTPay.Api.DataSender.Post
+ Exception Type: 
+ Exception Message: 
+ Stack Trace: 
+ Additional Info: Posting to: "https://secure.tpay.com/api/gw/75f86137a6635df826e3efe2e66f7c9a946fdde1/transaction/create"with data: "{"id":1010,"accept_tos":1,"api_password":"p@$$w0rd#@!","online":0,"group":150,"amount":"100.00","description":"Transakcja testowa","crc":"3214","language":0,"name":"Jan Kowalski","md5sum":"ff4039f49447625ef78b8ab368c5cf8c"}"end with status: OK
+
+ -------------- Info (2020-04-14 13:53:19.0748) --------------
+ 
+ Call Site: ObslugaTPay.Api.DataSender.Post
+ Exception Type: 
+ Exception Message: 
+ Stack Trace: 
+ Additional Info: Posting to: "https://secure.tpay.com/api/gw/75f86137a6635df826e3efe2e66f7c9a946fdde1/transaction/create"with data: "{"id":1010,"accept_tos":1,"api_password":"p@$$w0rd#@!","online":0,"group":150,"amount":"100.00","description":"Transakcja testowa","crc":"3214","language":0,"name":"Jan Kowalski","md5sum":"ff4039f49447625ef78b8ab368c5cf8c"}"end with status: OK
+
+ -------------- Info (2020-04-14 14:22:25.6578) --------------
+ 
+ Call Site: ObslugaTPay.Api.DataSender.Post
+ Exception Type: 
+ Exception Message: 
+ Stack Trace: 
+ Additional Info: Posting to: "https://secure.tpay.com/api/gw/75f86137a6635df826e3efe2e66f7c9a946fdde1/transaction/create"with data: "{"id":1010,"accept_tos":1,"api_password":"p@$$w0rd#@!","online":0,"group":111,"amount":"100.00","description":"Transakcja testowa","crc":"3214","language":0,"name":"Jan Kowalski","md5sum":"ff4039f49447625ef78b8ab368c5cf8c"}"end with status: OK
+
+ -------------- Info (2020-04-14 14:27:36.6974) --------------
+ 
+ Call Site: ObslugaTPay.Api.DataSender.Post
+ Exception Type: 
+ Exception Message: 
+ Stack Trace: 
+ Additional Info: Posting to: "https://secure.tpay.com/api/gw/75f86137a6635df826e3efe2e66f7c9a946fdde1/transaction/create"with data: "{"id":1010,"accept_tos":1,"api_password":"p@$$w0rd#@!","online":0,"group":111,"amount":"100.00","description":"Transakcja testowa","crc":"3214","language":0,"name":"Jan Kowalski","md5sum":"ff4039f49447625ef78b8ab368c5cf8c"}"end with status: OK
+
+ -------------- Info (2020-04-14 14:32:11.0204) --------------
+ 
+ Call Site: ObslugaTPay.Api.DataSender.Post
+ Exception Type: 
+ Exception Message: 
+ Stack Trace: 
+ Additional Info: Posting to: "https://secure.tpay.com/api/gw/75f86137a6635df826e3efe2e66f7c9a946fdde1/chargeback/transaction"with data: "{"title":"TR-BRA-1V361PX","api_password":"p@$$w0rd#@!"}"end with status: OK
+
+ -------------- Error (2020-04-14 14:33:00.9459) --------------
+ 
+ Call Site: ObslugaTPay.Api.TransactionApi.LogResultError
+ Exception Type: 
+ Exception Message: 
+ Stack Trace: 
+ Additional Info: Error from "https://secure.tpay.com/api/gw/75f86137a6635df826e3efe2e66f7c9a946fdde1/chargeback/transaction": "Cannot create refund for this payment channel"
+
+ -------------- Info (2020-04-14 14:34:01.5700) --------------
+ 
+ Call Site: ObslugaTPay.Api.DataSender.Post
+ Exception Type: 
+ Exception Message: 
+ Stack Trace: 
+ Additional Info: Posting to: "https://secure.tpay.com/api/gw/75f86137a6635df826e3efe2e66f7c9a946fdde1/chargeback/transaction"with data: "{"title":"TR-BRA-1V361PX","api_password":"p@$$w0rd#@!"}"end with status: 0
+
+ -------------- Info (2020-04-14 14:53:48.9651) --------------
+ 
+ Call Site: ObslugaTPay.Api.DataSender.Post
+ Exception Type: 
+ Exception Message: 
+ Stack Trace: 
+ Additional Info: Posting to: "https://secure.tpay.com/api/gw/75f86137a6635df826e3efe2e66f7c9a946fdde1/chargeback/transaction"with data: "{"title":"TR-BRA-1V361PX","api_password":"p@$$w0rd#@!"}"end with status: 0
+
+ -------------- Error (2020-04-14 14:53:48.9651) --------------
+ 
+ Call Site: ObslugaTPay.Api.TransactionApi.Chargeback
+ Exception Type: 
+ Exception Message: 
+ Stack Trace: 
+ Additional Info: Could't recive data
+
+ -------------- Info (2020-04-14 15:41:38.0126) --------------
+ 
+ Message: Posting to: "https://secure.tpay.com/api/gw/75f86137a6635df826e3efe2e66f7c9a946fdde1/transaction/create"with data: "{"id":1010,"accept_tos":1,"api_password":"p@$$w0rd#@!","online":0,"group":150,"amount":"100.00","description":"Transakcja testowa","crc":"3214","language":0,"name":"Jan Kowalski","md5sum":"ff4039f49447625ef78b8ab368c5cf8c"}"end with status: OK
+
+ -------------- Info (2020-04-14 15:44:33.9405) --------------
+ 
+ Message: Posting to: "https://secure.tpay.com/api/gw/75f86137a6635df826e3efe2e66f7c9a946fdde1/transaction/create"with data: "{"id":1010,"accept_tos":1,"api_password":"p@$$w0rd#@!","online":0,"group":150,"amount":"100.00","description":"Transakcja testowa","crc":"3214","language":0,"name":"Jan Kowalski","md5sum":"ff4039f49447625ef78b8ab368c5cf8c"}"end with status: OK
+

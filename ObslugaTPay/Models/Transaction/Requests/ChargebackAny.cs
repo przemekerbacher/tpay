@@ -27,6 +27,6 @@ namespace ObslugaTPay.Models
         /// Refund amount (can not be greater than transaction amount).
         /// </summary>
         [DataMember]
-        public float ChargebackAmount { get; set; }
+        public string ChargebackAmount { get; set; }
     }
 }
