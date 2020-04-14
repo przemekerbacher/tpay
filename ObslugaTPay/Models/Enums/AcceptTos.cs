@@ -8,6 +8,6 @@ namespace ObslugaTPay.Models.Enums
 {
     public enum AcceptTos
     {
-        FALSE = 0, TRUE = 1
+        False = 0, True = 1
     }
 }

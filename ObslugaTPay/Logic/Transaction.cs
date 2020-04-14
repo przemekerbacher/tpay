@@ -6,24 +6,49 @@ using System.Threading.Tasks;
 
 namespace ObslugaTPay.Logic
 {
-    public class Transaction : ApiData
+    /// <summary>
+    /// This class provides methods for handling TPay transaction method.
+    /// </summary>
+    public class Transaction
     {
+        /// <summary>
+        /// Date format used in Tpay system. It's important for hashing reasons.
+        /// </summary>
+        public string DateTimeFormat = "yyyy:MM:dd:HH:MM";
+
+        /// <summary>
+        /// Allows for chargeback money with possibility to set amount.
+        /// </summary>
         public bool AllowChargebackAny { get; set; } = false;
 
         private ITransactionsApi _api;
+        private Credentials _credentials;
 
-        public Transaction(Credentials credentials, ITransactionsApi api) : base(credentials)
+        /// <summary>
+        /// Initializes a new instance of the <see cref="Transaction" /> class.
+        /// </summary>
+        /// <param name="credentials">Provides data required to get access to api.</param>
+        /// <param name="api">Provides methods for executing api requests.</param>
+        public Transaction(Credentials credentials, ITransactionsApi api)
         {
             _api = api;
             _credentials = credentials;
         }
 
+        /// <summary>
+        /// This method allows you to prepare transaction for customer.
+        /// </summary>
+        /// <param name="model">Provides data required to create transaction</param>
+        /// <returns>Response from api mapped to c# object. Includes data required to execute other methods</returns>
         public async Task<CreateResponse> CreateTransaction(CreateData model)
         {
+            #region hashing
+            //Hash is required for seurity reason. "md5sum" is mandatory. "timeHash" will be set if date will be set.
             var hashCalculator = new HashCalculator();
             var md5Sum = hashCalculator.Md5Sum(_credentials.Id.ToString(), model.Amount.ToString(CultureInfo.InvariantCulture), _credentials.CRC, _credentials.Code);
             var timeHash = hashCalculator.TimeHash(model.ExpirationDate.Value.ToString(DateTimeFormat), _credentials.Code);
-
+            #endregion
+            
             var secrets = new Secrets
             {
                 Md5sum = md5Sum,
@@ -63,7 +88,13 @@ namespace ObslugaTPay.Logic
             });
         }
 
-        public async Task<BlikResponse> PayViaBlik(CreateResponse model, int code)
+        /// <summary>
+        /// Allows for payment using Blik.
+        /// </summary>
+        /// <param name="model">Provides transaction data for which payment will be executing.</param>
+        /// <param name="code">6 digits code provided by Blik system.</param>
+        /// <returns>Response from api mapped to c# object.</returns>
+        public async Task<BlikResponse> PayUsingBlik(CreateResponse model, int code)
         {
             if (model != null)
             {
@@ -80,6 +111,11 @@ namespace ObslugaTPay.Logic
 
         }
 
+        /// <summary>
+        /// Allows to get information about transaction.
+        /// </summary>
+        /// <param name="model">Provides transaction information required to get more information.</param>
+        /// <returns>Response from api mapped to c# object.</returns>
         public async Task<GetResponse> Get(CreateResponse model)
         {
             if (model != null)
@@ -88,10 +124,16 @@ namespace ObslugaTPay.Logic
             }
 
             return null;
-
         }
 
-        public async Task<BlikResponse> Blik(CreateResponse model, Alias alias, int? code = null)
+        /// <summary>
+        /// Allows for payment using OneClick. If alias is registered, code is not required.
+        /// </summary>
+        /// <param name="model">Provides transaction data for which payment will be executing.</param>
+        /// <param name="alias">Mandatory field when creating oneClick transactions, optional for standart Blik transactions with 6 digit code. In case of alias registration attempt you can send only 1 alias per 1 request.</param>
+        /// <param name="code">6 digits code provided by Blik system.</param>
+        /// <returns>Response from api mapped to c# object.</returns>
+        public async Task<BlikResponse> PayUsingBlik(CreateResponse model, Alias alias, int? code = null)
         {
             if (model != null)
             {
@@ -107,6 +149,11 @@ namespace ObslugaTPay.Logic
             return null;
         }
 
+        /// <summary>
+        /// Allows for chargeback money for transaction.
+        /// </summary>
+        /// <param name="model">Provides transaction information.</param>
+        /// <returns>Response from api mapped to c# object.</returns>
         public async Task<ChargebackResponse> Chargeback(CreateResponse model)
         {
             if (model != null)
@@ -121,6 +168,13 @@ namespace ObslugaTPay.Logic
             return null;
         }
 
+        /// <summary>
+        /// Allows for chargeback money for transaction. You can decide how much you want to chargeback.
+        /// </summary>
+        /// <param name="model">Provides transaction information.</param>
+        /// <param name="amount">Chargeback amount  </param>
+        /// <returns>Response from api mapped to c# object.</returns>
+        /// <remarks>This option is disabled by default. Set <see cref="AllowChargebackAny"/> as true to enable.</remarks>
         public async Task<ChargebackResponse> ChargebackAny(CreateResponse model, float amount)
         {
             if (AllowChargebackAny && model != null)
@@ -129,7 +183,7 @@ namespace ObslugaTPay.Logic
                 {
                     Title = model.Title,
                     ApiPassword = _credentials.Password,
-                    Amount = amount
+                    ChargebackAmount = amount
 
                 });
             }
@@ -137,6 +191,11 @@ namespace ObslugaTPay.Logic
             return null;
         }
 
+        /// <summary>
+        /// Allow to get information about chargeback status
+        /// </summary>
+        /// <param name="model">Provides transaction information.</param>
+        /// <returns>Response from api mapped to c# object.</returns>
         public async Task<RefundTransactionRespose> GetChargebackStatus(CreateResponse model)
         {
             if (model != null)

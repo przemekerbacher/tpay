@@ -9,16 +9,19 @@ using Create = ObslugaTPay.Models.Create;
 
 namespace ObslugaTPay.Api
 {
+    /// <summary>
+    /// <see cref="ITransactionsApi"/>
+    /// </summary>
     public class TransactionApi : ITransactionsApi
     {
         private static readonly NLog.Logger Logger = NLog.LogManager.GetCurrentClassLogger();
-        private IDictionary<string, string> _routes;
         private string _create = "CreateUrl";
         private string _blik = "BlikUrl";
         private string _chargeback = "ChargebackUrl";
         private string _chargebackAny = "ChargebackAny";
         private string _get = "GetUrl";
         private string _refund = "RefundUrl";
+        private IDictionary<string, string> _routes;
 
         public TransactionApi(IDictionary<string, string> routes)
         {

@@ -4,6 +4,9 @@ using System.Runtime.Serialization;
 
 namespace ObslugaTPay.Models.Enums
 {
+    /// <summary>
+    /// Error codes enum
+    /// </summary>
     [JsonConverter(typeof(StringEnumConverter))]
     public enum TransactionErrorCodes
     {

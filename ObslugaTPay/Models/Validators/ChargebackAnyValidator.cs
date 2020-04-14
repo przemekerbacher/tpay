@@ -12,7 +12,7 @@ namespace ObslugaTPay.Models.Validators
 
             RuleFor(v => v.ApiPassword).NotEmpty().WithMessage("{PropertyName} can not be empty.");
             RuleFor(v => v.Title).NotEmpty().WithMessage("{PropertyName} can not be empty.");
-            RuleFor(v => v.Amount)
+            RuleFor(v => v.ChargebackAmount)
                 .NotEmpty().WithMessage("{PropertyName} can not be empty.")
                 .Must(BeSmallerThanTransactionValue).WithMessage("{PropertyName} must be smaller than transaction value");
 

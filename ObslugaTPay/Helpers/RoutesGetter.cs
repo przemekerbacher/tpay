@@ -1,14 +1,15 @@
 ﻿using ObslugaTPay.Models;
 using System.Reflection;
 using System.Collections.Generic;
+using ObslugaTPay.Routes;
 
 namespace ObslugaTPay.Helpers
 {
-    public class RoutesGetter
+    public class RoutesGetter<T> where T : RouteSettings
     {
-        private RouteSetting _routes;
+        private object _routes;
 
-        public RoutesGetter(RouteSetting routes)
+        public RoutesGetter(object routes)
         {
             _routes = routes;
         }

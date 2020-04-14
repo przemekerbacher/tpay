@@ -9,6 +9,7 @@ using ObslugaTPay.Helpers;
 using ObslugaTPay.Models.Enums;
 using System.Threading.Tasks;
 using Moq;
+using ObslugaTPay.Routes;
 
 namespace ObslugaTPay.Tests
 {
@@ -23,7 +24,7 @@ namespace ObslugaTPay.Tests
             mock.Setup(m => m.Create(new Create())).Returns(default(Task<CreateResponse>));
 
             ITransactionsApi api = mock.Object;
-            var routes = new RoutesGetter(new RouteSetting("https://secure.tpay.com", "75f86137a6635df826e3efe2e66f7c9a946fdde1")).GetRoutesDictionary();
+            var routes = new RoutesGetter<TransactionRoutes>(new TransactionRoutes("https://secure.tpay.com", "75f86137a6635df826e3efe2e66f7c9a946fdde1")).GetRoutesDictionary();
             _tpay = new Transaction(new Credentials
             {
                 Id = 1010,
@@ -40,7 +41,7 @@ namespace ObslugaTPay.Tests
         {
             Task.Run(async () =>
             {
-                var result = await _tpay.CreateTransaction(new CreateData(100.99, "Transakcja testowa", 150, "Jan Kowalski", AcceptTos.TRUE));
+                var result = await _tpay.CreateTransaction(new CreateData(100.99f, "Transakcja testowa", 150, "Jan Kowalski", AcceptTos.True));
                 Assert.IsNotNull(result);
 
             }).GetAwaiter().GetResult();
